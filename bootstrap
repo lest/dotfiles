@@ -7,6 +7,6 @@ if [ ! -d $HOME/.oh-my-zsh ]; then
   git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 fi
 
-for dotfile in zshrc gemrc irbrc; do
+for dotfile in zshrc gemrc irbrc tmux.conf; do
   ln -nfs $DIR/$dotfile $HOME/.$dotfile
 done
