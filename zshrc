@@ -48,7 +48,7 @@ export EDITOR='vim'
 # fi
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init - zsh)"
 
 # rails command
