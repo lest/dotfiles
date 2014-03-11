@@ -55,6 +55,10 @@ eval "$(rbenv init - zsh)"
 _script_rails() {
   local check_dir=$PWD
   while [ "$(dirname $check_dir)" != "/" ]; do
+    if [ -f "$check_dir/bin/rails" ]; then
+      "$check_dir/bin/rails" $@
+      return
+    fi
     if [ -f "$check_dir/script/rails" ]; then
       "$check_dir/script/rails" $@
       return
