@@ -26,6 +26,8 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git bundler heroku lein redis-cli)
 
+BUNDLED_COMMANDS=(mina)
+
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
