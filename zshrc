@@ -43,16 +43,6 @@ alias wget='wget --no-check-certificate'
 # editor
 export EDITOR='vim'
 
-# RVM
-# if [ -s $HOME/.rvm/scripts/rvm ]; then
-#     . $HOME/.rvm/scripts/rvm
-#     rvm rvmrc load
-# fi
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh)"
-
 # rails command
 _script_rails() {
   local check_dir=$PWD
@@ -70,3 +60,5 @@ _script_rails() {
   rails $@
 }
 alias rails=_script_rails
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

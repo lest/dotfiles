@@ -107,7 +107,7 @@ before layers configuration."
    powerline-default-separator 'arrow
    enh-ruby-add-encoding-comment-on-save nil
    ruby-enable-ruby-on-rails-support t
-   ruby-version-manager 'rbenv
+   ruby-version-manager 'rvm
    css-indent-offset 2)
   )
 
