@@ -110,7 +110,8 @@ before layers configuration."
    enh-ruby-deep-indent-paren nil
    ruby-enable-ruby-on-rails-support t
    ruby-version-manager 'rvm
-   css-indent-offset 2)
+   css-indent-offset 2
+   web-mode-markup-indent-offset 2)
   )
 
 (defun dotspacemacs/config ()
