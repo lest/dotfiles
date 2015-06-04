@@ -112,7 +112,6 @@ before layers configuration."
   ;; User initialization goes here
   (set-frame-name "Spacemacs")
   (setq-default
-   powerline-default-separator 'arrow
    ruby-align-to-stmt-keywords '(if while unless until begin case for def)
    enh-ruby-add-encoding-comment-on-save nil
    enh-ruby-deep-indent-paren nil
@@ -126,7 +125,7 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
-  (setq powerline-default-separator 'arrow)
+  (setq powerline-default-separator nil)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
