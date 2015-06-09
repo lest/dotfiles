@@ -39,8 +39,6 @@ unsetopt correct_all
 alias grep='grep --color=always'
 alias less='less -R'
 alias pwgen='pwgen -1cnsB'
-alias ack='ack-grep'
-alias wget='wget --no-check-certificate'
 
 # editor
 export EDITOR='vim'
