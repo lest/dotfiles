@@ -15,7 +15,7 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(erlang)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(smartparens tern company-tern)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -121,7 +121,8 @@ before layers configuration."
    js-indent-level 2
    js2-basic-offset 2
    js2-strict-missing-semi-warning nil
-   web-mode-markup-indent-offset 2)
+   web-mode-markup-indent-offset 2
+   erlang-indent-level 2)
   )
 
 (defun dotspacemacs/config ()
