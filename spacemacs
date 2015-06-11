@@ -120,6 +120,7 @@ before layers configuration."
    css-indent-offset 2
    js-indent-level 2
    js2-basic-offset 2
+   js2-strict-missing-semi-warning nil
    web-mode-markup-indent-offset 2)
   )
 
