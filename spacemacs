@@ -10,12 +10,12 @@
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(osx git html ruby javascript clojure emacs-lisp shell markdown org auto-completion syntax-checking)
+   dotspacemacs-configuration-layers '(osx git html ruby javascript clojure emacs-lisp shell erlang-elixir markdown org auto-completion syntax-checking)
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(erlang)
+   dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(smartparens tern company-tern)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
