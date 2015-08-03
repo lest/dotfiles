@@ -116,7 +116,6 @@ before layers configuration."
   (setq-default
    ruby-align-to-stmt-keywords '(if while unless until begin case for def)
    enh-ruby-add-encoding-comment-on-save nil
-   enh-ruby-deep-indent-paren nil
    ruby-enable-ruby-on-rails-support t
    ruby-version-manager 'rvm
    css-indent-offset 2
