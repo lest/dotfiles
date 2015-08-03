@@ -118,11 +118,18 @@ before layers configuration."
    enh-ruby-add-encoding-comment-on-save nil
    ruby-enable-ruby-on-rails-support t
    ruby-version-manager 'rvm
+   evil-shift-width 2
    css-indent-offset 2
    js-indent-level 2
    js2-basic-offset 2
    js2-strict-missing-semi-warning nil
+   jsx-indent-level 2
    web-mode-markup-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-attr-indent-offset 2
+   web-mode-enable-auto-quoting nil
+   sh-basic-offset 2
    erlang-indent-level 2)
   )
 
