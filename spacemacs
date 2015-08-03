@@ -10,7 +10,7 @@
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(osx git html ruby javascript clojure emacs-lisp shell erlang-elixir markdown org auto-completion syntax-checking)
+   dotspacemacs-configuration-layers '(osx version-control git html ruby javascript clojure emacs-lisp shell erlang elixir markdown org auto-completion syntax-checking)
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
