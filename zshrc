@@ -40,6 +40,10 @@ alias grep='grep --color=always'
 alias less='less -R'
 alias pwgen='pwgen -1cnsB'
 
+alias open='reattach-to-user-namespace open'
+alias pbcopy='reattach-to-user-namespace pbcopy'
+alias pbpaste='reattach-to-user-namespace pbpaste'
+
 # editor
 export EDITOR='vim'
 
