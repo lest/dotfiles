@@ -10,7 +10,7 @@
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(osx version-control git html ruby javascript clojure emacs-lisp shell erlang elixir markdown org auto-completion syntax-checking)
+   dotspacemacs-configuration-layers '(osx version-control git html ruby javascript react clojure emacs-lisp shell erlang elixir markdown yaml org auto-completion syntax-checking spell-checking)
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
@@ -23,7 +23,7 @@
    ;; the list `dotspacemacs-configuration-layers'
    dotspacemacs-delete-orphan-packages t))
 
-(defun dotspacemacs/init ()
+(defun dotspacemacs/user-init ()
   "Initialization function.
 This function is called at the very startup of Spacemacs initialization
 before layers configuration."
@@ -133,7 +133,7 @@ before layers configuration."
    erlang-indent-level 2)
   )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
