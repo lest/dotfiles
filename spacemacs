@@ -130,6 +130,7 @@ before layers configuration."
    web-mode-attr-indent-offset 2
    web-mode-enable-auto-quoting nil
    sh-basic-offset 2
+   sh-indentation 2
    erlang-indent-level 2)
   )
 
