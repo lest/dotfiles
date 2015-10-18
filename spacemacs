@@ -133,7 +133,7 @@ user code."
    ruby-align-to-stmt-keywords '(if while unless until begin case for def)
    enh-ruby-add-encoding-comment-on-save nil
    ruby-enable-ruby-on-rails-support t
-   ruby-version-manager 'rvm
+   ruby-version-manager 'rbenv
    evil-shift-width 2
    css-indent-offset 2
    js-indent-level 2
