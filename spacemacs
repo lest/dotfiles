@@ -23,13 +23,18 @@
    ;; the list `dotspacemacs-configuration-layers'
    dotspacemacs-delete-orphan-packages t))
 
-(defun dotspacemacs/user-init ()
+(defun dotspacemacs/init ()
   "Initialization function.
 This function is called at the very startup of Spacemacs initialization
 before layers configuration."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
+   ;; One of `vim', `emacs' or `hybrid'. Evil is always enabled but if the
+   ;; variable is `emacs' then the `holy-mode' is enabled at startup. `hybrid'
+   ;; uses emacs key bindings for vim's insert mode, but otherwise leaves evil
+   ;; unchanged. (default 'vim)
+   dotspacemacs-editing-style 'vim
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
    ;; banner, `random' chooses a random text banner in `core/banners'
@@ -58,9 +63,15 @@ before layers configuration."
                                :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
+   ;; The leader key accessible in `emacs state' and `insert state'
+   ;; (default "M-m")
+   dotspacemacs-emacs-leader-key "M-m"
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it.
    dotspacemacs-major-mode-leader-key ","
+   ;; Major mode leader key accessible in `emacs state' and `insert state'.
+   ;; (default "C-M-m)
+   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
    ;; The command key used for Evil commands (ex-commands) and
    ;; Emacs commands (M-x).
    ;; By default the command key is `:' so ex-commands are executed like in Vim
@@ -110,8 +121,13 @@ before layers configuration."
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now.
-   dotspacemacs-default-package-repository nil)
-  ;; User initialization goes here
+   dotspacemacs-default-package-repository nil
+  ))
+
+(defun dotspacemacs/user-init ()
+  "Initialization function for user code.
+It is called immediately after `dotspacemacs/init'.  You are free to put any
+user code."
   (set-frame-name "Spacemacs")
   (setq-default
    ruby-align-to-stmt-keywords '(if while unless until begin case for def)
