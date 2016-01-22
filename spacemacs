@@ -169,6 +169,7 @@ user code."
    ruby-enable-ruby-on-rails-support t
    ruby-insert-encoding-magic-comment nil
    ruby-version-manager 'rbenv
+   rbenv-show-active-ruby-in-modeline nil
    evil-shift-width 2
    css-indent-offset 2
    js-indent-level 2
