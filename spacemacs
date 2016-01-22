@@ -10,14 +10,35 @@
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(osx version-control git html ruby javascript react clojure emacs-lisp shell erlang elixir markdown yaml org auto-completion syntax-checking spell-checking)
+   dotspacemacs-configuration-layers
+   '(
+     osx
+     version-control
+     git
+     html
+     ruby
+     ruby-on-rails
+     javascript
+     react
+     clojure
+     emacs-lisp
+     shell
+     erlang
+     elixir
+     markdown
+     yaml
+     org
+     auto-completion
+     syntax-checking
+     spell-checking
+     )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(nginx-mode)
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(smartparens tern company-tern)
+   dotspacemacs-excluded-packages '(tern company-tern)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
@@ -30,11 +51,25 @@ before layers configuration."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
+   ;; If non nil ELPA repositories are contacted via HTTPS whenever it's
+   ;; possible. Set it to nil if you have no way to use HTTPS in your
+   ;; environment, otherwise it is strongly recommended to let it set to t.
+   ;; This variable has no effect if Emacs is launched with the parameter
+   ;; `--insecure' which forces the value of this variable to nil.
+   ;; (default t)
+   dotspacemacs-elpa-https t
+   ;; Maximum allowed time in seconds to contact an ELPA repository.
+   dotspacemacs-elpa-timeout 5
+   ;; If non nil then spacemacs will check for updates at startup
+   ;; when the current branch is not `develop'. (default t)
+   dotspacemacs-check-for-update nil
    ;; One of `vim', `emacs' or `hybrid'. Evil is always enabled but if the
    ;; variable is `emacs' then the `holy-mode' is enabled at startup. `hybrid'
    ;; uses emacs key bindings for vim's insert mode, but otherwise leaves evil
    ;; unchanged. (default 'vim)
    dotspacemacs-editing-style 'vim
+   ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
+   dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
    ;; banner, `random' chooses a random text banner in `core/banners'
@@ -131,8 +166,8 @@ user code."
   (set-frame-name "Spacemacs")
   (setq-default
    ruby-align-to-stmt-keywords '(if while unless until begin case for def)
-   enh-ruby-add-encoding-comment-on-save nil
    ruby-enable-ruby-on-rails-support t
+   ruby-insert-encoding-magic-comment nil
    ruby-version-manager 'rbenv
    evil-shift-width 2
    css-indent-offset 2
