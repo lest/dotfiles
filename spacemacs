@@ -175,6 +175,7 @@ user code."
    js-indent-level 2
    js2-basic-offset 2
    js2-strict-missing-semi-warning nil
+   js2-indent-switch-body t
    jsx-indent-level 2
    web-mode-markup-indent-offset 2
    web-mode-code-indent-offset 2
