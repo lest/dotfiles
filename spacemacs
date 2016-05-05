@@ -193,6 +193,13 @@ user code."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (setq powerline-default-separator nil)
+  (setq flycheck-command-wrapper-function
+        (lambda (command)
+          (let ((executable (car command))
+                (arguments (cdr command)))
+            (if (string-suffix-p "rubocop" executable)
+                (append '("bundle" "exec" "rubocop") arguments)
+              command))))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
