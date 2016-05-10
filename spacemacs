@@ -24,7 +24,6 @@
      emacs-lisp
      shell
      erlang
-     elixir
      markdown
      yaml
      org
