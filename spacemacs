@@ -199,6 +199,8 @@ layers configuration."
             (if (string-suffix-p "rubocop" executable)
                 (append '("bundle" "exec" "rubocop") arguments)
               command))))
+  (with-eval-after-load 'helm-ag
+    (evil-define-key 'evilified helm-ag-mode-map "gr" 'helm-ag--update-save-results))
   (fset 'evil-visual-update-x-selection 'ignore)
 )
 
