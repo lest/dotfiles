@@ -199,6 +199,7 @@ layers configuration."
             (if (string-suffix-p "rubocop" executable)
                 (append '("bundle" "exec" "rubocop") arguments)
               command))))
+  (fset 'evil-visual-update-x-selection 'ignore)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
