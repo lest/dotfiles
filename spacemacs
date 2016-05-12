@@ -29,7 +29,7 @@
      org
      auto-completion
      syntax-checking
-     spell-checking
+     (spell-checking :variables spell-checking-enable-by-default nil)
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
