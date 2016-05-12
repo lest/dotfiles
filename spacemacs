@@ -202,6 +202,15 @@ layers configuration."
   (with-eval-after-load 'helm-ag
     (evil-define-key 'evilified helm-ag-mode-map "gr" 'helm-ag--update-save-results))
   (fset 'evil-visual-update-x-selection 'ignore)
+  (with-eval-after-load 'rspec-mode
+    (defun rspec-runner ()
+      "Return command line to run rspec."
+      (let ((bundle-command (if (rspec-bundle-p) "bundle exec " ""))
+            (spring-command (if (rspec-spring-p) "bin/spring " nil)))
+        (concat (or spring-command bundle-command)
+                (if (rspec-rake-p)
+                    (concat rspec-rake-command " spec")
+                  rspec-spec-command)))))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
