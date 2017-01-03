@@ -15,6 +15,7 @@
      osx
      version-control
      git
+     github
      html
      ruby
      ruby-on-rails
@@ -24,8 +25,11 @@
      emacs-lisp
      shell
      erlang
+     elixir
+     rust
      markdown
      yaml
+     ansible
      org
      auto-completion
      syntax-checking
@@ -106,11 +110,9 @@ before layers configuration."
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
    ;; (default "C-M-m)
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
-   ;; The command key used for Evil commands (ex-commands) and
-   ;; Emacs commands (M-x).
-   ;; By default the command key is `:' so ex-commands are executed like in Vim
-   ;; with `:' and Emacs commands are executed with `<leader> :'.
-   dotspacemacs-command-key ":"
+   ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
+   ;; (default "SPC")
+   dotspacemacs-emacs-command-key "SPC"
    ;; If non nil the paste micro-state is enabled. While enabled pressing `p`
    ;; several times cycle between the kill ring content.
    dotspacemacs-enable-paste-micro-state t
@@ -172,10 +174,10 @@ user code."
    evil-shift-width 2
    css-indent-offset 2
    js-indent-level 2
+   js-switch-indent-offset 2
    js2-basic-offset 2
    js2-strict-missing-semi-warning nil
    js2-include-node-externs t
-   js2-indent-switch-body t
    jsx-indent-level 2
    web-mode-markup-indent-offset 2
    web-mode-code-indent-offset 2
@@ -196,12 +198,18 @@ layers configuration."
         (lambda (command)
           (let ((executable (car command))
                 (arguments (cdr command)))
+            (message executable)
             (if (string-suffix-p "rubocop" executable)
                 (append '("bundle" "exec" "rubocop") arguments)
               command))))
   (with-eval-after-load 'helm-ag
     (evil-define-key 'evilified helm-ag-mode-map "gr" 'helm-ag--update-save-results))
   (fset 'evil-visual-update-x-selection 'ignore)
+  (with-eval-after-load 'clojure-mode
+    (put-clojure-indent 'try+ 0))
+  (with-eval-after-load 'rubocop-mode
+    (setq rubocop-check-command "bundle exec rubocop --format emacs")
+    (defun rubocop-ensure-installed ()))
   (with-eval-after-load 'rspec-mode
     (defun rspec-runner ()
       "Return command line to run rspec."
@@ -215,3 +223,17 @@ layers configuration."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (markdown-mode bind-key tern bind-map rake hydra seq spinner company highlight request skewer-mode gh pcre2el auto-complete iedit git-gutter multiple-cursors rust-mode ob-elixir org minitest hide-comnt clojure-mode anzu undo-tree elixir-mode flycheck flyspell-correct ht async inflections inf-ruby dash jinja2-mode ansible-doc ansible web-mode spaceline pug-mode persp-mode org-plus-contrib magit-gh-pulls hl-todo helm-projectile helm-company helm-ag flycheck-rust evil-unimpaired clojure-snippets cider smartparens helm helm-core yasnippet magit magit-popup git-commit with-editor projectile js2-mode yaml-mode xterm-color ws-butler window-numbering which-key web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toml-mode toc-org tagedit spacemacs-theme smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rainbow-delimiters racer queue quelpa projectile-rails powerline popwin pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file nginx-mode neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hungry-delete htmlize highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-c-yasnippet google-translate golden-ratio gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md flyspell-correct-helm flycheck-pos-tip flycheck-mix flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eshell-z eshell-prompt-extras esh-help erlang emmet-mode elisp-slime-nav dumb-jump diff-hl company-web company-tern company-statistics column-enforce-mode coffee-mode clj-refactor clean-aindent-mode cider-eval-sexp-fu chruby cargo bundler auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
