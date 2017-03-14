@@ -18,7 +18,7 @@
      git
      github
      html
-     ruby
+     (ruby :variables ruby-test-runner 'rspec)
      ruby-on-rails
      javascript
      react
@@ -212,6 +212,10 @@ layers configuration."
     (setq rubocop-check-command "bundle exec rubocop --format emacs")
     (defun rubocop-ensure-installed ()))
   (with-eval-after-load 'rspec-mode
+    (defun rspec-spring-p ()
+      (message (concat (rspec-project-root) "bin/spring"))
+      (and rspec-use-spring-when-possible
+           (file-executable-p (concat (rspec-project-root) "bin/spring"))))
     (defun rspec-runner ()
       "Return command line to run rspec."
       (let ((bundle-command (if (rspec-bundle-p) "bundle exec " ""))
