@@ -67,3 +67,7 @@ _script_rails() {
 alias rails=_script_rails
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+if [ -d "$HOME/Library/Android/sdk/platform-tools" ]; then
+  export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+fi
