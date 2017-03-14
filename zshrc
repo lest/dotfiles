@@ -43,6 +43,7 @@ alias pwgen='pwgen -1cnsB'
 alias open='reattach-to-user-namespace open'
 alias pbcopy='reattach-to-user-namespace pbcopy'
 alias pbpaste='reattach-to-user-namespace pbpaste'
+alias brew='reattach-to-user-namespace brew'
 
 # editor
 export EDITOR='vim'
