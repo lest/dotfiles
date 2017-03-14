@@ -195,22 +195,31 @@ user code."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (setq powerline-default-separator nil)
-  (setq flycheck-command-wrapper-function
-        (lambda (command)
-          (let ((executable (car command))
-                (arguments (cdr command)))
-            (message executable)
-            (if (string-suffix-p "rubocop" executable)
-                (append '("bundle" "exec" "rubocop") arguments)
-              command))))
+  (with-eval-after-load 'flycheck
+    (add-to-list 'flycheck-checkers 'ruby-bundled-rubocop)
+    (flycheck-define-checker ruby-bundled-rubocop
+      "bundled rubocop"
+      :command ("bundle" "exec" "rubocop" "--display-cop-names" "--format" "emacs"
+                (config-file "--config" flycheck-rubocoprc)
+                (option-flag "--lint" flycheck-rubocop-lint-only)
+                "--stdin" source-original)
+      :standard-input t
+      :error-patterns
+      ((info line-start (file-name) ":" line ":" column ": C: "
+             (optional (id (one-or-more (not (any ":")))) ": ") (message) line-end)
+       (warning line-start (file-name) ":" line ":" column ": W: "
+                (optional (id (one-or-more (not (any ":")))) ": ") (message)
+                line-end)
+       (error line-start (file-name) ":" line ":" column ": " (or "E" "F") ": "
+              (optional (id (one-or-more (not (any ":")))) ": ") (message)
+              line-end))
+      :modes (enh-ruby-mode ruby-mode)
+      :next-checkers ((warning . ruby-rubylint))))
   (with-eval-after-load 'helm-ag
     (evil-define-key 'evilified helm-ag-mode-map "gr" 'helm-ag--update-save-results))
   (fset 'evil-visual-update-x-selection 'ignore)
   (with-eval-after-load 'clojure-mode
     (put-clojure-indent 'try+ 0))
-  (with-eval-after-load 'rubocop-mode
-    (setq rubocop-check-command "bundle exec rubocop --format emacs")
-    (defun rubocop-ensure-installed ()))
   (with-eval-after-load 'rspec-mode
     (defun rspec-spring-p ()
       (message (concat (rspec-project-root) "bin/spring"))
