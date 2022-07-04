@@ -73,3 +73,5 @@ if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 if [ -d "$HOME/Library/Android/sdk/platform-tools" ]; then
   export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 fi
+
+if which keychain > /dev/null; then eval "$(keychain --quiet --noask --eval)"; fi
