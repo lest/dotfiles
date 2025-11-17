@@ -75,3 +75,7 @@ if [ -d "$HOME/Library/Android/sdk/platform-tools" ]; then
 fi
 
 if which keychain > /dev/null; then eval "$(keychain --quiet --noask --eval)"; fi
+
+if [ -d "$HOME/.local/bin" ]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
